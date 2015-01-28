@@ -41,3 +41,19 @@ The knee-slapper is entirely my own creation (I think). It consists of a ninth b
 In addition, the knee-slapper kind of hurts (I haven't decided if that was intended), which could give the user incentive to save his more powerful controls until they would really make a difference. 
 
 ### Testing Methodology
+I chose to test my controller entirely in the Arduino software. I setup my buttons as digital inputs and my joysticks as analog inputs. Using the following functions I printed the state of each sensor to the serial window to test that everything was working:
+
+```c
+pinMode(R1, INPUT);
+int R1state = digitalRead(R1);
+if (R1state == HIGH) {     
+   Serial.print("R1");
+}
+```
+
+```c
+int RStickXvalue = analogRead(A0);
+Serial.print(RStickXvalue);
+```
+
+The exact is 
