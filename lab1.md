@@ -1,0 +1,43 @@
+
+## Lab 1: Build a Gamepad Controller
+
+### Introduction
+In this lab I created a fully functional video game controller with an Arduino Micro as the microcontroller. I built the base design from scratch using a section of 2 by 4, and configured the button and joystick positions in a unique manner to be both intuitive to use and comfortable to hold. The buttons were soldered with wire to a pair of breadboards, while the joysticks were wired directly using Male to Female Headers. Finally, I included a surprise "knee-slapper" button on the bottom of the controller to be used as a special button (such as a missile launcher or turbo boost) in gameplay.
+
+### Controller Build
+I chose to ditch the provided plywood controller entirely when I approached this assignment. Instead I built my controller from scratch using scrap two by four in the machine shop.
+
+[FULL IMAGE]
+
+I went through the following procedure to build my controller:
+
+1. Cut wood [INSERT LENGTH] long using a hacksaw.
+2. Mill slots for joysticks using 1/4"  and 1/2" endmills.
+
+   [INSERT CLOSE-UP IMAGE]
+
+3. Round edges using a vertical grinder.
+4. Sand controller by hand for smooth finish.
+
+### Design Methodology
+A few factors went into my controller design. First, I wanted the form to be unique. Now that all of the major game consoles are using almost the exact same controller layout, it was important to me to build something different that still felt comfortable. My only real constraint was that the joysticks must be operated by my thumbs because fingers don't have the same dexterity needed to operate the main game controls.
+
+[INSERT IMAGE OF HANDS]
+
+I came up with this layout of the hands because it seemed the most natural regarding hand positioning. In addition having all 8 fingers laying against the backside of the controller meant it would decrease the latency of pushing buttons compared to the standard video game controller.
+
+[INSERT IMAGE OF CONTROLLER BACKSIDE]
+
+The joysticks were inserted into the controller rather than on top in order to decrease their height for increased comfort. I believe this height is fairly optimal, although in hindsight I think the joysticks would be more comfortable to operate if their were tilted slightly toward the user. 
+
+[INSERT IMAGE OF THUMB ON JOYSTICK]
+
+The choices made in wiring were mostly made to keep wires away from the user's hands. The button wires were fed up over the center of the controller away from the thumbs, and the joystick wires were fed down next to the breadboards before being hooked up to the Arduino. The 8 buttons were all hooked up using pull-down 10K ohm resistors. The joysticks were fed 5V and GND; their potentiometers were wired directly to analog inputs A0-A3, and their buttons were wired directly to digital pins. The mode switch at the bottom of the controller was fed to a digital pin and GND using an internal pullup implemented in software. 
+
+##### The Knee-Slapper
+The knee-slapper is entirely my own creation (I think). It consists of a ninth button hidden under a spring-loaded bumper. The idea behind this ridiculous looking idea is to provide a more interesting action to operate special controls in video gameplay. For example, in a FPS game this could be "throw a grenade", or in an auto racing game the knee-slapper could activate nitrous. Pressing a simple button on a standard controller doesn't correspond well to the intensity of throwing a hand grenade, but slamming the controller down on your leg is a bit more indicative of the action the user is trying to make. 
+[INSERT KNEE-SLAPPER IMAGE]
+
+In addition, the knee-slapper kind of hurts (I haven't decided if that was intended), which could give the user incentive to save his more powerful controls until they would really make a difference. 
+
+### Testing Methodology
