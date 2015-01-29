@@ -11,7 +11,7 @@ I chose to ditch the provided plywood controller entirely when I approached this
 
 I went through the following procedure to build my controller:
 
-1. Cut wood [INSERT LENGTH] long using a hacksaw.
+1. Cut wood 6" long using a hacksaw.
 2. Mill slots for joysticks using 1/4"  and 1/2" endmills.
 
    [INSERT CLOSE-UP IMAGE]
@@ -56,4 +56,12 @@ int RStickXvalue = analogRead(A0);
 Serial.print(RStickXvalue);
 ```
 
-The exact is 
+The actual code is in a separate file, the above code is just a snapshot of how I tested my controller. 
+
+### Results & Discussion
+I felt this lab was very successful. By utilizing tools in the machine shop, I created a very unique video game controller with full functionality for modern games. The design is very ergonomic and natural to hold, and provides easy access to 8 buttons. The addition of the Knee-Slapper provides a refreshing twist on ordinary gameplay, allowing users to make special moves in the game with a more intensive input. 
+
+My design does have a few drawbacks, however. The design feels natural to hold, but the controller isn't as secure in the hands (in my experience at least). The joysticks also don't feel quite centered on my thumbs. If I had more time I would increase the thickness of the controller so that the hands touched more surface area. In addition I would tilt the joysticks towards the user so they could be controlled more easily.
+
+### Conclusions
+For this assignment I built from scratch a video game controller using buttons, joysticks, and a switch. I connected these input devices to an Arduino Micro, and tested their functionality in the Arduino software. The design I chose is unique and feels very natural to hold, with easy access to all 8 buttons. It took about two hours to build the wood frame, two hours to attach and wire the sensors, and one hour to test the controller in software. I felt the assignment was very well explained and I definitely enjoyed working on the lab.
