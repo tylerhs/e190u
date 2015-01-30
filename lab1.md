@@ -36,7 +36,8 @@ The choices made in wiring were mostly made to keep wires away from the user's h
 ![alt text](http://i.imgur.com/Fk36P9M.jpg "Wiring")
 
 ##### The Knee-Slapper
-The knee-slapper is entirely my own creation (I think). It consists of a ninth button hidden under a spring-loaded bumper. The idea behind this ridiculous looking idea is to provide a more interesting action to operate special controls in video gameplay. For example, in a FPS game this could be "throw a grenade", or in an auto racing game the knee-slapper could activate nitrous. Pressing a simple button on a standard controller doesn't correspond well to the intensity of throwing a hand grenade, but slamming the controller down on your leg is a bit more indicative of the action the user is trying to make. 
+The knee-slapper is entirely my own creation (I think). It consists of a ninth button hidden under a spring-loaded bumper. The thought behind this ridiculous looking idea is to provide a more interesting action to operate special controls in video gameplay. For example, in a FPS game this could be "throw a grenade", or in an auto racing game the knee-slapper could activate nitrous. Pressing a simple button on a standard controller doesn't correspond well to the intensity of throwing a hand grenade, but slamming the controller down on your leg is a bit more indicative of the action the user is trying to make. 
+
 ![alt text](http://i.imgur.com/f0hU332.jpg "Knee-Slapper")
 
 ### Testing Methodology
