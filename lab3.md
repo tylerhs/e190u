@@ -1,4 +1,4 @@
-![alt text](URL "NAME")
+
 ## Lab 3: Gameplay Testing
 
 ### Introduction
@@ -54,8 +54,8 @@ if(ts.health<=0)
 {
   FILE * pFile;
   pFile = fopen("data.txt", "ab");
-	fprintf(pFile, "%d, %s \n", actor->clientnum, "Kill");
-	fclose(pFile);
+  fprintf(pFile, "%d, %s \n", actor->clientnum, "Kill");
+  fclose(pFile);
 
 
 ```
@@ -68,16 +68,38 @@ The second file I chose to analyze was the weapon file, which handles weapon cyc
 
 ```c
 if(d->gunselect) {
-	d->ammo[d->gunselect]--;
+  d->ammo[d->gunselect]--;
 
   FILE * pFile;
-	pFile = fopen("data.txt", "ab");
-	fprintf(pFile, "%d, %s \n",d->clientnum, "Shot");
-	fclose(pFile);
+  pFile = fopen("data.txt", "ab"); 
+  fprintf(pFile, "%d, %s \n",d->clientnum, "Shot");
+  fclose(pFile);
 }
 ```
 
 After the ammo is subtracted from the player's gun, I placed code to write to the same "data.txt" file which player made a shot. 
+
+From this point, all I have is a text file of Kills and Shots which looks like this:
+```
+128, Shot
+128, Shot
+0, Shot
+128, Shot
+128, Kill
+0, Shot
+0, Shot
+128, Shot
+128, Shot
+0, Shot
+128, Shot
+0, Kill
+```
+
+I then imported this file into Excel as a CSV file, and used four IF statements to create columns of 1s and 0s depending on which combination of player number and kill/shot each row was. Then I summed the Kills columns to find how many kills each player made, and divided total shots over total kills to give an accuracy statistic for each player. Here is a picture of the Excel spreadsheet:
+
+![alt text](http://i.imgur.com/aK5NewV.png "Excel Spreadsheet")
+
+Using both the reaction times and the gameplay statistics should give me a pretty good idea of how my controller compares to a more classical controller layout.
 
 ### Testing and Results
 
