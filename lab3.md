@@ -102,6 +102,13 @@ I then imported this file into Excel as a CSV file, and used four IF statements 
 Using both the reaction times and the gameplay statistics should give me a pretty good idea of how my controller compares to a more classical controller layout.
 
 ### Testing and Results
+##### Gameplay Testing
+There were a few factors that went into gameplay testing. In general, I wanted a very controlled, consistent environment so that the amount of uncontrolled variables were reduced. I chose to implement a 1v1 game vs. a computer for all of my testing. The Free-For-All game mode was chosen for its simplicity, and the Fanatic Quake map was chosen because it is relatively small so there is more action during the game. To reduce skill bias, I used the ABBA method so that the second controller used was not given an advantage due to the player learning how to play. Finally, I found another person with almost no gaming experience to test both the controllers. Here are the results:
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 ### Conclusions
