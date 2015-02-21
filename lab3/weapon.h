@@ -1,4 +1,3 @@
-```c
 // weapon.cpp: all shooting and effects code, projectile management
 #include "game.h"
 #include <stdio.h>
@@ -991,5 +990,3 @@ namespace game
     }
 };
 
-
-```

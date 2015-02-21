@@ -1,4 +1,4 @@
-```c
+
 /////////////////////
 // Lab 2 Code      //
 // Tyler Smallwood //
@@ -186,4 +186,3 @@ int readAxis(int thisAxis) {
   // return the distance for this axis:
   return distance;
 }
-```

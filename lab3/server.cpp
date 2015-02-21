@@ -1,4 +1,4 @@
-```c
+
 #include "game.h"
 
 
@@ -3637,5 +3637,3 @@ namespace server
     #include "aiman.h"
 }
 
-
-```

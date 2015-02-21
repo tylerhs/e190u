@@ -1,4 +1,4 @@
-```c
+
 /////////////////////
 // Lab 1 Code      //
 // Tyler Smallwood //
@@ -110,4 +110,3 @@ void loop(){
   Serial.println("");
   delay(50);
 }
-```
