@@ -70,6 +70,22 @@ if (y_vel < -10)
 Notice how the program tells the pong paddle to go down if the velocity is positive. This is because the pixel values in the y direction increase as you get further down the image.
 
 ### Testing
+It works! By running both the hand detection and pong programs simultaneously, I am able to control the paddle by moving my hand in front of the webcam. Unfortunately, it is very difficult to control the pong paddle using the hand's velocity. This is because if you want to move the paddle very far in one direction, it is necessary to keep moving your hand past the webcam's field of view. Thus I instead chose to control pong paddle position using hand position. Here is my modified code:
+
+```c++
+if (ctx->hand_center.y > 300)
+	n = write(ctx->clientNum, "D", 1);
+else if (ctx->hand_center.y < 180)
+	n = write(ctx->clientNum, "U", 1);
+else
+	n = write(ctx->clientNum, "N", 1);
+```
+
+If the hand's position is below 180 pixels or above 300 pixels, the program transmits a command to the python game. Otherwise
+the program sends a command to keep the paddle still. I found it much easier to control using hand positioning rather than velocity. One note is that for my current setup, the Pong game waits for a command from the hand detection program before updating the position of paddles/ball. Thus if the hand detection algorithm is running slower than the pong game, the pong game slows down. This makes the game easier to play because reaction times don't have to be as fast, however, it may be more interesting/harder to allow the game to keep updating without input from the hand detection program. Below is an image of both programs running simultaneously.
+
+![alt text](http://i.imgur.com/lIcJaBJ.png "Controlling pong with hand detection")
 
 
 ### Conclusions
+This lab was successful in using the hand detection algorithms running on the TK1's GPU (and CPU) to control a Pong paddle's up and down movement. If given more time, I would like to have optimized the hand detection program to run faster, possibly by also mapping the ```findContours()``` and ```findConvexHull()``` functions to GPU in addition to the image filtering. This would make the Pong game run at faster frame rates and allow more precise, smoother control. That being said, I was happy to learn how to use things such as sockets to communicate between running processes. 
