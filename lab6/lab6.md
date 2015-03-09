@@ -1,4 +1,4 @@
-## Lab 5: Motion Detection
+## Lab 6: Motion Pong Control
 ### Introduction
 The objective of this lab is to use the Hand detection code created in lab 5 to control a paddle in the game Pong. I chose to use the given Pong example and I used sockets to communicate between my C++ program and the Python program to control the pong paddle.
 
