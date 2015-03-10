@@ -66,7 +66,5 @@ After processing the image, I converted the resulting ```thr_image``` back to it
 
 I found the GPU ported program ran significantly faster than the CPU program, which makes sense because the GPU is built to perform huge amounts computations at a time because of its hierarchy and the amount of arithmetic units on the chip. 
 
-### Testing
-
-
 ### Conclusions
+All in all, this lab was successful in detecting vertical hand movements for use in lab 6. I successfully ported the image processing and filtering to GPU from the CPU, which increased the frame rate for the hand detection. I also modified the existing code to detect 2 hands on different sides of the screen. If given more time, I would like to also port the code to identify contours to the GPU as well, for increased performance. 
