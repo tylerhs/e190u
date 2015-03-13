@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <iostream>
+
+#include <opencv2/imgproc/imgproc_c.h>
+#include <opencv2/highgui/highgui_c.h>
+#include "opencv2/gpu/gpu.hpp"
+#include "opencv2/opencv.hpp"
+
+using namespace std;
+using namespace cv;
+
+struct ctx {
+
+	CvCapture	    *capture;	/* Capture handle */
+	IplImage 			image;
+	
+
+}
+
+void capture(struct ctx *ctx)
+{
+	ctx->capture = cvCaptureFromCAM(0);
+	if (!ctx->capture) {
+		fprintf(stderr, "Error initializing capture\n");
+		exit(1);
+	}
+	ctx->ipl_image = cvQueryFrame(ctx->capture);  
+	ctx->image = Mat(ctx->ipl_image);
