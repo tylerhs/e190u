@@ -3,7 +3,7 @@
 #include <opencv2/imgproc/imgproc_c.h>
 #include <opencv2/highgui/highgui_c.h>
 
-//#include "arduino-serial-lib.h"
+#include "arduino-serial-lib.h"
 
 #define THR 30
 
@@ -155,14 +155,6 @@ void display(struct ctx *ctx)
 	cvShowImage("thresholded", ctx->thr_image);
 }
 
-void comm(struct ctx *ctx)
-{
-	FILE *fd;
-    fd = fopen("/dev/ttyACM0","w");
-    fprintf(fd, "%d", 2);
-	fclose(fd);
-}
-
 int main(int argc, char **argv)
 {
 	struct ctx ctx = { };
@@ -180,7 +172,6 @@ int main(int argc, char **argv)
 			mouseClicked = 0;
 		}
 		identifyTarget(&ctx);
-		comm(&ctx);
 		display(&ctx);
 		printf("X: %d, Y: %d \n", xClick, yClick);
 

@@ -159,7 +159,7 @@ void comm(struct ctx *ctx)
 {
 	FILE *fd;
     fd = fopen("/dev/ttyACM0","w");
-    fprintf(fd, "%d", 2);
+    fprintf(fd, "%s", "50");
 	fclose(fd);
 }
 
