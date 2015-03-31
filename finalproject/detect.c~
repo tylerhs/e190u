@@ -10,6 +10,7 @@
 int xClick;
 int yClick;
 int mouseClicked = 0;
+int threshold = 0;
 
 struct ctx {
 
@@ -24,6 +25,7 @@ struct ctx {
 	CvSeq			*contour;
 	CvMemStorage	*contour_st;
 	CvMemStorage	*temp_st;
+	CvPoint			crosshairs;
 
 	int				pix_red;
 	int				pix_green;
@@ -33,6 +35,7 @@ struct ctx {
 	int				pix_val;
 	int				xCoor;
 	int				yCoor;
+	int				data;
 };
 
 void init_capture(struct ctx *ctx)
@@ -69,16 +72,17 @@ void filter(struct ctx *ctx)
 {
 	cvCvtColor(ctx->image, ctx->hsv_image, CV_BGR2HSV);
 	cvInRangeS(ctx->image,
-			   cvScalar(ctx->pix_red - THR,ctx->pix_green - THR,ctx->pix_blue - THR,255),
-			   cvScalar(ctx->pix_red + THR,ctx->pix_green + THR,ctx->pix_blue + THR,255),
+			   cvScalar(ctx->pix_red - threshold,ctx->pix_green - threshold,ctx->pix_blue - threshold,255),
+			   cvScalar(ctx->pix_red + threshold,ctx->pix_green + threshold,ctx->pix_blue + threshold,255),
 			   ctx->thr_image_rgb);
 	cvInRangeS(ctx->hsv_image, 
-			   cvScalar(ctx->pix_hue - THR,ctx->pix_sat - THR,ctx->pix_val - THR,255),
-			   cvScalar(ctx->pix_hue + THR,255,ctx->pix_val + THR,255), 
+			   cvScalar(ctx->pix_hue - threshold,0,ctx->pix_val - threshold,255),
+			   cvScalar(ctx->pix_hue + threshold,255,ctx->pix_val + threshold,255), 
 			   ctx->thr_image_hsv);
 	cvMul(ctx->thr_image_rgb, ctx->thr_image_hsv, ctx->thr_image, 1);
 	cvSmooth(ctx->thr_image, ctx->thr_image, CV_GAUSSIAN, 5, 5, 0, 0);
-	
+	ctx->crosshairs.x = 320;
+	ctx->crosshairs.y = 240;
 }
 
 void on_mouse(int event, int x, int y, int flags, void* param)
@@ -104,11 +108,13 @@ void getPixel(struct ctx *ctx)
 	ctx->pix_hue = hsv.val[0];
 	ctx->pix_sat = hsv.val[1];
 	ctx->pix_val = hsv.val[2];
+	//printf("R: %d, G: %d, B: %d, H: %d, S: %d, V: %d\n",rgb.val[0],rg
 }
 
 void identifyTarget(struct ctx *ctx)
 {
 	double area, max_area = 0.0;
+	int rectArea;
 	CvSeq *contours, *tmp, *contour = NULL;
 
 	/* cvFindContours modifies input image, so make a copy */
@@ -125,28 +131,50 @@ void identifyTarget(struct ctx *ctx)
             contour = tmp;
         }
     }
-
+	ctx->data = 4;
 	/* Approximate contour with poly-line */
 	if (contour) {
 		contour = cvApproxPoly(contour, sizeof(CvContour),
 				       ctx->contour_st, CV_POLY_APPROX_DP, 2,
 				       1);
 		ctx->contour = contour;
+		
+		CvRect br;
+		CvPoint center;
+		
+		br = cvBoundingRect(contour, 0);
+		
+		center.x = br.x+br.width/2;
+		center.y = br.y+br.height/2;
+		
+		rectArea = br.width*br.height;
+		//printf("Area: %d\n", rectArea);
+		if(rectArea < 1000){}
+		else{
+			if(center.x > ctx->crosshairs.x + 20){
+				ctx->data = 1;
+			}
+			else if(center.x < ctx->crosshairs.x - 20){
+				ctx->data = 7;
+			}
+			else{
+				ctx->data = 4;
+			}
+			if(center.y > ctx->crosshairs.y + 20){
+				ctx->data += 2;
+			}
+			else if(center.y < ctx->crosshairs.y - 20){
+				ctx->data += 1;
+			}
+			cvRectangle(ctx->image, cvPoint(br.x, br.y),
+					cvPoint(br.x+br.width, br.y+br.height),
+					cvScalar(0, 0, 255,0),
+					2,8,0);
+
+			cvCircle(ctx->image, center, 10, cvScalar(255, 255, 0,0),3 ,8,0);
+			cvCircle(ctx->image, ctx->crosshairs, 10, cvScalar(255, 0, 0,0),3 ,8,0);
+		}
 	}
-	
-	CvRect br;
-	CvPoint center;
-	
-    br = cvBoundingRect(contour, 0);
-    center.x = br.x+br.width/2;
-    center.y = br.y+br.height/2;
-
-    cvRectangle(ctx->image, cvPoint(br.x, br.y),
-                cvPoint(br.x+br.width, br.y+br.height),
-                cvScalar(0, 0, 255,0),
-                2,8,0);
-
-    cvCircle(ctx->image, center, 10, cvScalar(255, 255, 0,0),3 ,8,0);
 }
 
 void display(struct ctx *ctx)
@@ -157,10 +185,13 @@ void display(struct ctx *ctx)
 
 void comm(struct ctx *ctx)
 {
+	char chardata = (char) ctx->data;
 	FILE *fd;
     fd = fopen("/dev/ttyACM0","w");
-    fprintf(fd, "%s", "50");
+    //fprintf(fd, "%d", ctx->chardata);
 	fclose(fd);
+	printf("%d \n", ctx->data);
+	printf("%c \n", chardata);
 }
 
 int main(int argc, char **argv)
@@ -178,12 +209,12 @@ int main(int argc, char **argv)
 		if(mouseClicked == 1){
 			getPixel(&ctx);
 			mouseClicked = 0;
+			threshold = THR;
+			printf("X: %d, Y: %d \n", xClick, yClick);
 		}
 		identifyTarget(&ctx);
 		comm(&ctx);
 		display(&ctx);
-		printf("X: %d, Y: %d \n", xClick, yClick);
-
 		key = cvWaitKey(1);
 	} while (key != 'q');
 
