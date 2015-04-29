@@ -21,7 +21,7 @@ I then cut triangular legs and glued them to the base of the cannon for support.
 
 I then attached two sections of 2x4" to the circular base to built the Tilting frame. A hole for the axle bearings and a hole for the motor was milled out of the wood, and the axle was fed through the upper hole.
 
-![alt text](https://lh5.googleusercontent.com/s3CR6ZL4jpPYOaEkbAFq69mtdpK3_nK6U7oznN-kzHpuKkLm1_7TZikWLv0LBFgoyuu3KX9Y0kLGJXY=w918-h745 "Tilting frame")
+![alt text](https://lh4.googleusercontent.com/0D4uoxk3BZCrfWRTvonH6HqhYdvhcmwk_Aa7aN-10GdL5d4CuBgANQhnJMDMkwWtSpeWlHBq8Z6Tn-0=w918-h745 "Tilting frame")
 
 Finally, the cannon was strapped to a 2x4" using zipties, and everything was wired up to the Arduino through a pair of Darlington Arrays.
 
