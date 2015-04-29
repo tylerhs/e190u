@@ -9,25 +9,25 @@ I first built the cannon itself. After a trip to Lowe's I quickly epoxed the PVC
 
 Next up was to build the frame. I used a 2'x4' section of particle board, and used the Shopbot to create a perfect circle about 2' in diameter. My intention was to allow the circular piece of particle board to rotate on top of a square base. The cannon itself would be mounted on the circular piece, allowing it to rotate left and right.
 
-![alt text](https://lh6.googleusercontent.com/2m3x_1xg1MmncqUqA8PJ_NUkWygsCfupK2JP7SFXmLf-X96CvNl1RnoIfj32Bmx-61qc_6-R8bwbrNE=s800 "Circular platform rotating atop base")
+![alt text](https://lh5.googleusercontent.com/zbzhShPZi64xXYyxwStidzGf2yzuSHVAD-4Vn-Dg8ifqEuYl6i4GVMO4kCmp8QInCl9G9g=w749-h634 "Circular platform rotating atop base")
 
 I then drilled holes for the Panning axle and placed bearings in said holes. The first stepper motor was fixed to the circular base and its power was transmitted to the Panning axle using a 3D printed belt pulley and a timing belt.
 
-![alt text](https://lh3.googleusercontent.com/qSxdIBXxNMH6OXTym1XREDI4ElJ5i7VxBnXeNJZLLfCNtusxy21IycuS4SkQPxvLABulvFYXwCb6mNw=w918-h797 "Pan motor and belt pulleys")
+![alt text](https://lh5.googleusercontent.com/6dpkGW7w7BDrd2MKF6FzBNrO0gXp5oDU3PtFnvXDXd3vrD4xDHwJiWWM2OjW5O-OG0QV1g=w749-h634 "Pan motor and belt pulleys")
 
 I then cut triangular legs and glued them to the base of the cannon for support.
 
-![alt text](https://lh4.googleusercontent.com/IIZkQ5Oj1ApKvgxjgKDUvXR3wIuN3l2vcsruVQNytVm9kEfMQpkV6logfJLrjwXKC2yOHEQ3Kb-dNsM=w918-h797 "Legs for cannon's base")
+![alt text](https://lh6.googleusercontent.com/fKbg51zD2M5wdabIkDdSx6qBzudlTBHG2b_-b3nIXcceRSKot0TgipVTyT6qALQsFeD6gg=w749-h634 "Legs for cannon's base")
 
 I then attached two sections of 2x4" to the circular base to built the Tilting frame. A hole for the axle bearings and a hole for the motor was milled out of the wood, and the axle was fed through the upper hole.
 
-![alt text](https://lh4.googleusercontent.com/0D4uoxk3BZCrfWRTvonH6HqhYdvhcmwk_Aa7aN-10GdL5d4CuBgANQhnJMDMkwWtSpeWlHBq8Z6Tn-0=w918-h745 "Tilting frame")
+![alt text](https://lh3.googleusercontent.com/UtjxGf49HTH4wJxl3-NLUSwJoZzgOe5F-bY2EqNoYK9xDZpJidORBc4agGzDxAouYcVPuA=w749-h634 "Tilting frame")
 
 Finally, the cannon was strapped to a 2x4" using zipties, and everything was wired up to the Arduino through a pair of Darlington Arrays.
 
-![alt text](https://lh5.googleusercontent.com/QsYyzwivggqK0_oh1Pq0_BZ2p3yzLC_o-31fHeNkr2VKi5dbyhtn3e56w-u0dKUjPoOxF1vPamSE__U=s800 "Cannon strapped to 2x4")
+![alt text](https://lh4.googleusercontent.com/68SbLi5PSuPcE3lpQJOr7XG_-2lxMUGSirCc9k15f1eY0-Nt9U6rZQWvu8flmQohdkeHOw=w749-h634 "Cannon strapped to 2x4")
 
-![alt text](https://lh6.googleusercontent.com/7l7VYxgex3EAz1Mpg9mY5pv5t9_b_JQueuRNmA3m05fU9PWUM2ogxDeftkLUpsyfOxQ_Y65gNHD-3Cw=w918-h745 "Wiring")
+![alt text](https://lh3.googleusercontent.com/QWAQQemXZKssO8FS7acDAweDUzJD_olgwn1JCHz7oB3pzfnFZXBi5VUX8vIsJ3NB3X0wKg=w749-h634 "Wiring")
 
 ##### Software Design
 I had a few steps involving software that were implemented to ensure full functionality of the cannon.
