@@ -27,7 +27,7 @@ Finally, the cannon was strapped to a 2x4" using zipties, and everything was wir
 
 ![alt text](https://lh5.googleusercontent.com/QsYyzwivggqK0_oh1Pq0_BZ2p3yzLC_o-31fHeNkr2VKi5dbyhtn3e56w-u0dKUjPoOxF1vPamSE__U=s800 "Cannon strapped to 2x4")
 
-![alt text](https://lh3.googleusercontent.com/H3lTihTedW1Fo9ajaig6twHNBEoK56PhQ1GxmXc0J3XWEvk9Fih2LMF1Y5th4p6BWCvR2oJDCFtDO7A=w918-h745 "Cannon strapped to 2x4")
+![alt text](https://lh3.googleusercontent.com/H3lTihTedW1Fo9ajaig6twHNBEoK56PhQ1GxmXc0J3XWEvk9Fih2LMF1Y5th4p6BWCvR2oJDCFtDO7A=w918-h745 "Wiring")
 
 ##### Software Design
 I had a few steps involving software that were implemented to ensure full functionality of the cannon.
