@@ -13,7 +13,7 @@ Next up was to build the frame. I used a 2'x4' section of particle board, and us
 
 I then drilled holes for the Panning axle and placed bearings in said holes. The first stepper motor was fixed to the circular base and its power was transmitted to the Panning axle using a 3D printed belt pulley and a timing belt.
 
-![alt text](http://imgur.com/E3ccnQE,HW9SpV4,V82RUda,Tw9KbzV,UsenWsZ,U6oK6Z9,8wvqely,EqSnnfT,Hm1SLOH,ivLSbvP,W23P0Pa#5 "Pan motor and belt pulleys")
+![alt text](http://i.imgur.com/U6oK6Z9.jpg "Pan motor and belt pulleys")
 
 I then cut triangular legs and glued them to the base of the cannon for support.
 
